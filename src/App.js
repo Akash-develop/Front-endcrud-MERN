@@ -1,15 +1,12 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
 import Navbar from "./component/NavBar";
 import StudentTable from "./component/StudentTable";
+import AuthPage from "./component/AuthPage";
+import { AuthContext } from "./component/AuthContext";
 
 function App() {
-  const fetchStudents = useCallback(async (page, pageSize) => {
-    const res = await fetch(
-      `http://localhost:6969/students/list?page=${page}&pageSize=${pageSize}`
-    );
-    if (!res.ok) throw new Error("Failed to fetch students");
-    return await res.json(); // backend returns { data, total }
-  }, []);
+  const { token, logout } = useContext(AuthContext);
+  if (!token) return <AuthPage />;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
@@ -18,10 +15,11 @@ function App() {
         links={[
           { label: "Home", onClick: () => alert("Home clicked") },
           { label: "About", onClick: () => alert("About clicked") },
+          { label: "Logout", onClick: logout },
         ]}
       />
       <div style={{ flex: 1, padding: 20, minHeight: 0 }}>
-        <StudentTable fetchStudents={fetchStudents} pageSize={10} />
+        <StudentTable pageSize={10} />
       </div>
     </div>
   );

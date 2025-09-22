@@ -1,0 +1,101 @@
+/* Container for the auth page */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  font-family: Arial, sans-serif;
+}
+
+/* Card-like box */
+.auth-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Heading */
+.auth-box h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #1f2937;
+}
+
+/* Form styling */
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+.auth-box input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Buttons */
+.auth-box button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Primary button (Login/Register) */
+.auth-box button[type="submit"] {
+  background: #3b82f6;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.auth-box button[type="submit"]:hover {
+  background: #2563eb;
+}
+
+/* Secondary toggle button */
+.auth-box button[type="button"] {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.auth-box button[type="button"]:hover {
+  background: #e5e7eb;
+}
+
+/* Wrapper for password input */
+.password-wrapper {
+  position: relative;
+  margin-bottom: 1rem;
+      display: flex;
+}
+
+.password-wrapper input {
+  width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 17px;
+    top: 39%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    user-select: none;
+}
